@@ -26,11 +26,13 @@ jobs:
           gradle-version: '8.10'
 
       - name: Build Debug APK
-        run: gradle assembleDebug --stacktrace
+        working-directory: ./Adfreetube
+        run: |
+          gradle assembleDebug --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: YouTubePlayer-debug
-          path: '**/build/outputs/apk/debug/*.apk'
+          name: Adfreetube-debug
+          path: 'Adfreetube/**/build/outputs/apk/debug/*.apk'
           if-no-files-found: error
